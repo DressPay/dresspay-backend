@@ -1,0 +1,20 @@
+{
+  "name": "dresspay-backend",
+  "version": "1.0.0",
+  "description": "Dress Pay Backend",
+  "main": "index.js",
+  "author": "Yukari Chiba",
+  "license": "GPLv3",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "form-data": "^4.0.0",
+    "md5": "^2.3.0",
+    "multer": "^1.4.2",
+    "node-cron": "^3.0.0",
+    "pg": "^8.6.0",
+    "uuid": "^8.3.2"
+  }
+}
