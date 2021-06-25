@@ -116,4 +116,4 @@ app.get("/", function (req, res) {
   return res.send("Hello world");
 });
 
-app.listen(process.env.PORT || 8081);
+app.listen(process.env.PORT || 8081, process.env.BIND || "0.0.0.0");
