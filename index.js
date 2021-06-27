@@ -91,7 +91,10 @@ app.post(
     } else if (db.checkPayment(req.body)) {
       res.send({ error: true, reason: "duplicate" });
     } else {
-      var filedata = storage.storeFile(req.body.photo);
+      var filedata =
+        req.body["clientid"] == "0"
+          ? storage.storeFakeFile(req.body.photo)
+          : storage.storeFile(req.body.photo);
       db.addPayment(req.body, filedata);
       return res.send({ error: false, data: filedata.uuid });
     }

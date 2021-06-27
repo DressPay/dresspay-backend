@@ -9,6 +9,13 @@ const storeFile = (file) => {
     hash: md5(file),
   };
 };
+const storeFakeFile = (file) => {
+  var uid = uuidv4();
+  return {
+    uuid: uid,
+    hash: "0",
+  };
+};
 const getFile = (uuid) => {
   try {
     return fs.readFileSync("data/" + uuid);
@@ -18,5 +25,6 @@ const getFile = (uuid) => {
 };
 module.exports = {
   storeFile,
+  storeFakeFile,
   getFile,
 };
