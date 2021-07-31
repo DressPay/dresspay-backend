@@ -3,13 +3,6 @@ const router = express.Router();
 
 const message = require("../../structures/message");
 
-const multer = require("multer");
-const upload = multer({
-  dest: "data/",
-  limits: { fieldSize: 10 * 1024 * 1024 },
-});
-router.use(upload.single("photo"));
-
 require("fs")
   .readdirSync(__dirname)
   .forEach(function (file) {

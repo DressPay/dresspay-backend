@@ -6,7 +6,15 @@ const services = require("./services");
 
 const app = express();
 
+const multer = require("multer");
+const upload = multer({
+  dest: "data/",
+  limits: { fieldSize: 10 * 1024 * 1024 },
+});
+
 app.use(express.urlencoded({ extended: true }));
+
+app.use(upload.array());
 
 const cronJobScheduler = require("./cronjobs");
 
