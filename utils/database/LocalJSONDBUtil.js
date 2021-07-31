@@ -78,7 +78,7 @@ const addPayment = (payment_attr, filedata) => {
     filedata.uuid,
     filedata.hash
   );
-  if (payment_attr.clientid == "0") tx.approve();
+  if (payment_attr.clientid == "0") tx.finish();
   driver.push(tx.toObject());
 };
 
