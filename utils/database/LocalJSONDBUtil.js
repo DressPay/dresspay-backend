@@ -4,10 +4,10 @@ const driver = require("../storage/LocalJSONDBDriver");
 
 const getClientByID = (id) => {
   if (id == "114514")
-    return struct_client(
-      (cid = "114514"),
-      (alias = "Strategic Explorations Ltd"),
-      (token = "e232fed1-6147-4ce0-a3b3-d501e039c2d2")
+    return new struct_client(
+      "114514",
+      "Strategic Explorations Ltd",
+      "e232fed1-6147-4ce0-a3b3-d501e039c2d2"
     );
   if (id == "0") return struct_client.getDefaultClient;
   else return null;
