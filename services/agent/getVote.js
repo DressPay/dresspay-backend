@@ -20,6 +20,7 @@ const action = (req, res) => {
     } else {
       res.send(
         message_struct.genAPIMessage({
+          price: tx.price,
           approve: tx.approvelist.length,
           disapprove: tx.disapprovelist.length,
           condition: evaluation.calculateLeastCondition(tx.price),
