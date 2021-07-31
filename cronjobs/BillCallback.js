@@ -1,5 +1,5 @@
 var md5 = require("md5");
-const db = require("./utils/db-fake");
+const db = require("../utils/database/LocalJSONDBUtil")
 const axios = require("axios");
 var FormData = require("form-data");
 
@@ -13,7 +13,7 @@ const requestCallBack = () => {
         out_trade_no: tx.txid,
         status: "SUCCESS",
         price: tx.price,
-        uid: tx.photo,
+        uid: tx.uid,
       };
       msg = Object.keys(msg)
         .sort()
@@ -34,17 +34,15 @@ const requestCallBack = () => {
       axios
         .post(tx.notify_url, form, { headers: form.getHeaders() })
         .then((res) => {
-          if (res.data.error == null) db.finishPayment(tx.photo);
-          else finishPayment(tx.photo, true);
+          if (res.data.error == null) db.finishPayment(tx.uid);
+          else finishPayment(tx.uid, true);
         });
     } else {
-      db.finishPayment(tx.photo);
+      db.finishPayment(tx.uid);
     }
   });
 };
-module.exports = {
-  requestCallBack,
-};
+module.exports = { time: "* * * * *", job: requestCallBack };
 
 if (require.main === module) {
   requestCallBack();

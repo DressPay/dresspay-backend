@@ -1,5 +1,4 @@
 data/
-data_demo/
 node_modules/
 .env
 .env.testing
